@@ -1,0 +1,33 @@
+{
+  "name": "express-backend-ngkkain",
+  "version": "1.0.0",
+  "description": "backend untuk company profile dan manajemen produk kain",
+  "homepage": "https://github.com/HuntNugie/express-backend-ngkKain#readme",
+  "bugs": {
+    "url": "https://github.com/HuntNugie/express-backend-ngkKain/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HuntNugie/express-backend-ngkKain.git"
+  },
+  "license": "ISC",
+  "author": "Nugie kurniawan (HuntNugie)",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
