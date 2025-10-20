@@ -3,7 +3,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser";
 import { config } from "dotenv";
 import route from "./routes/indexRoutes.js"
-
+import "./utils/db.js"
 config();
 
 const app = express();

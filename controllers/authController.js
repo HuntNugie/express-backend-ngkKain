@@ -1,8 +1,17 @@
 import Admin from "../models/Admin/admin.model.js"
-export const register = (req,res)=>{
-    const {email,password,confirm} = req.body
+import { hashPassword } from "../utils/pw.js"
+export const register = async(req,res)=>{
+    try {
+    const {nama,email,password,confirm} = req.body
     if(password !== confirm){
-        res.status(400).json({message:"password dan confirm password tidak sama"})
+        return res.status(400).json({message:"password dan confirm password tidak sama"})
     }
-    
+    const hashpass = hashPassword(password)
+    // tambahkan
+    const add = await Admin.create({nama,email,password:hashpass})
+
+    res.status(200).json({message:"Berhasil menambahkan data admin"})
+    } catch (error) {
+        res.status(400).json({message:error})
+    }
 }
