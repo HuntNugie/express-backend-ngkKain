@@ -1,9 +1,15 @@
 import { Router } from "express";
 import { register } from "../controllers/authController.js";
 import {regisValidator} from "../middlewares/validatorRegister.js";
-import { formRegisterCheck } from "../middlewares/formRegisCheck.js";
+import { handlerValidator } from "../middlewares/handlerValidator.js";
+import { checkUser } from "../middlewares/checkUser.js";
+import { loginValidator } from "../middlewares/validatorLogin.js";
+import { login } from "../controllers/authController.js";
+
 const route = Router();
 
-route.post("/register",regisValidator,formRegisterCheck,register)
+route.post("/register",regisValidator,handlerValidator,register)
+
+route.post("/login",loginValidator,handlerValidator,checkUser,login)
 
 export default route

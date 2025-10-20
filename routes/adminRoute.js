@@ -7,6 +7,7 @@ route.use(auth);
 
 
 route.get("/dashboard",(req,res)=>{
-    res.send("berhasil")
+
+    res.status(200).json({nama:req.admin.nama,email:req.admin.email,role:req.admin.role})
 })
 export default route

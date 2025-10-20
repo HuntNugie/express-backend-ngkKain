@@ -4,7 +4,7 @@ import { config } from "dotenv"
 config();
 
 export const generateToken = (data)=>{
-    return jwt.sign(data,process.env.SECRET_JWT,{expiresIn:"1m"});
+    return jwt.sign(data,process.env.SECRET_JWT,{expiresIn:"3m"});
 }
 
 export const verifyToken = (token)=>{

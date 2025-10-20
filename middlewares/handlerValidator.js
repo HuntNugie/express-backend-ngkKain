@@ -1,6 +1,6 @@
 import { validationResult } from "express-validator";
 
-export const formRegisterCheck = (req,res,next)=>{
+export const handlerValidator = (req,res,next)=>{
     const errors = validationResult(req)
 
     // jika ada error
