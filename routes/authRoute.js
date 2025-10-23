@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { register } from "../controllers/authController.js";
+import { logout, register } from "../controllers/authController.js";
 import {regisValidator} from "../middlewares/validatorRegister.js";
 import { handlerValidator } from "../middlewares/handlerValidator.js";
 import { checkUser } from "../middlewares/checkUser.js";
@@ -12,4 +12,5 @@ route.post("/register",regisValidator,handlerValidator,register)
 
 route.post("/login",loginValidator,handlerValidator,checkUser,login)
 
+route.post("/logout",logout)
 export default route
