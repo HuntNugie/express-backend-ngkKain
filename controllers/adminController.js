@@ -1,3 +1,4 @@
+import Produk from "../models/Produk/produk.model.js"
 export const dashboardController = (req,res)=>{
       res.status(200).json({nama:req.admin.nama,email:req.admin.email,role:req.admin.role})
 }
