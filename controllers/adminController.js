@@ -7,11 +7,10 @@ export const addContactForm = (req,res)=>{
 }
 export const addContactStore = async(req,res)=>{
     try {
-    const {nama_produk,kategori,harga,stok,deskripsi} = req.body
     const result = await Produk.create(req.body)
     res.status(200).json({nama:req.admin.nama,email:req.admin.email,role:req.admin.role,data:result})
     } catch (error) {
-    throw error    
+    res.status (422).json ({message: error});  
     }
 }
 export const produkController = (req,res)=>{

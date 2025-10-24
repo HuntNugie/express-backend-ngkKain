@@ -2,6 +2,8 @@ import { Router } from "express";
 import { auth } from "../middlewares/authMiddleware.js";
 import Produk from "../models/Produk/produk.model.js";
 import { addContactForm, addContactStore, dashboardController, produkController } from "../controllers/adminController.js";
+import { validatorAddProduk } from "../middlewares/validatorAddProduk.js";
+import { handlerValidator } from "../middlewares/handlerValidator.js";
 
 const route = Router();
 
@@ -12,6 +14,6 @@ route.get("/check",(req,res)=>{
 })
 route.get("/produk",produkController)
 route.get("/add-produk",addContactForm)
-route.post("/produk/add",addContactStore)
+route.post("/produk/add",validatorAddProduk,handlerValidator,addContactStore)
 route.get("/dashboard",dashboardController)
 export default route
