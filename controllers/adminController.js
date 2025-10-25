@@ -13,6 +13,7 @@ export const addContactStore = async(req,res)=>{
     res.status (422).json ({message: error});  
     }
 }
-export const produkController = (req,res)=>{
-    res.status(200).json({nama:req.admin.nama,email:req.admin.email,role:req.admin.role})
+export const produkController = async(req,res)=>{
+    const data = await Produk.find()
+    res.status(200).json({nama:req.admin.nama,email:req.admin.email,role:req.admin.role,data})
 }

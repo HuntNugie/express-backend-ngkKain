@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { auth } from "../middlewares/authMiddleware.js";
-import Produk from "../models/Produk/produk.model.js";
 import { addContactForm, addContactStore, dashboardController, produkController } from "../controllers/adminController.js";
 import { validatorAddProduk } from "../middlewares/validatorAddProduk.js";
 import { handlerValidator } from "../middlewares/handlerValidator.js";
