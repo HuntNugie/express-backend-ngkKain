@@ -21,7 +21,6 @@ export const produkController = async(req,res)=>{
 export const deleteProduk = async(req,res)=>{
     try {
         const id = req.params.id
-        console.log(id)
         const deletes = await Produk.findByIdAndDelete(id)
         if(deletes){
             return res.status(200).json({message:"Produk berhasil di hapus"})
@@ -30,5 +29,18 @@ export const deleteProduk = async(req,res)=>{
         }
     } catch (error) {
         return res.status(400).json({message:`gagal menghapus karna ${error}`})
+    }
+}
+
+export const detailProduk = async(req,res)=>{
+    try {
+        const id = req.query.id
+        const find = await Produk.findOne({_id:id})
+        if(!find){
+            return res.status(400).json({message:"User tidak di temukan"})
+        }
+        return res.status(200).json({nama:req.admin.nama,email:req.admin.email,role:req.admin.role,produk:find})
+    } catch (error) {
+        console.log(error)
     }
 }
