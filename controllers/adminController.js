@@ -44,3 +44,16 @@ export const detailProduk = async(req,res)=>{
         console.log(error)
     }
 }
+
+export const editProduk = async(req,res)=>{
+    try {
+        const id = req.query.id
+        const find = await Produk.findOne({_id:id})
+        if(!find){
+            return res.status(400).json({message:"User tidak di temukan"})
+        }
+        return res.status(200).json({nama:req.admin.nama,email:req.admin.email,role:req.admin.role,produk:find})
+    } catch (error) {
+        console.log(error)
+    }
+}
