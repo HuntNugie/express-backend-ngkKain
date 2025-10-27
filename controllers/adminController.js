@@ -57,3 +57,13 @@ export const editProduk = async(req,res)=>{
         console.log(error)
     }
 }
+
+export const updateProduk = async (req,res)=>{
+    try {
+        const {idProduk,nama_produk,kategori,harga,stok,deskripsi} = req.body
+        const update = await Produk.findByIdAndUpdate(idProduk,{nama_produk,kategori,harga,stok,deskripsi})
+        res.status(200).json({message:"berhasil mengupdate data"})
+    } catch (error) {
+        res.status(400).json({message:"ada yang salah"})
+    }
+}
